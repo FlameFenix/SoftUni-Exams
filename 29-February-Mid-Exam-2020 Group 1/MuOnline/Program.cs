@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Problem_2._Mu_Online
+namespace MuOnline
 {
     class Program
     {
@@ -32,11 +32,11 @@ namespace Problem_2._Mu_Online
                 int healthHealed = 0;
                 if (action[i] == "potion")
                 {
-                    if(healthOfPlayer > 0 && healthOfPlayer < 100)
+                    if (healthOfPlayer > 0 && healthOfPlayer < 100)
                     {
-                        
+
                         healthOfPlayer += value[i];
-                        if(healthOfPlayer > 100)
+                        if (healthOfPlayer > 100)
                         {
                             healthHealed = value[i] - (healthOfPlayer - 100);
                             healthOfPlayer = 100;
@@ -49,7 +49,7 @@ namespace Problem_2._Mu_Online
                     Console.WriteLine($"You healed for {healthHealed} hp.");
                     Console.WriteLine($"Current health: {healthOfPlayer} hp.");
                 }
-                else if(action[i] == "chest")
+                else if (action[i] == "chest")
                 {
                     chestSum += value[i];
                     Console.WriteLine($"You found {value[i]} bitcoins.");
@@ -60,7 +60,7 @@ namespace Problem_2._Mu_Online
                     if (healthOfPlayer > 0)
                     {
                         Console.WriteLine($"You slayed {action[i]}.");
-                        
+
                     }
                     else
                     {
@@ -71,7 +71,7 @@ namespace Problem_2._Mu_Online
                     }
                 }
             }
-            if(!isKilled)
+            if (!isKilled)
             {
                 Console.WriteLine($"You've made it!");
                 Console.WriteLine($"Bitcoins: {chestSum}");

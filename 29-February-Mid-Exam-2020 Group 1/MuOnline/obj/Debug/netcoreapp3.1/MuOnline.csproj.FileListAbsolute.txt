@@ -1,0 +1,13 @@
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.csprojAssemblyReference.cache
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.AssemblyInfoInputs.cache
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.AssemblyInfo.cs
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.csproj.CoreCompileInputs.cache
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\bin\Debug\netcoreapp3.1\MuOnline.exe
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\bin\Debug\netcoreapp3.1\MuOnline.deps.json
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\bin\Debug\netcoreapp3.1\MuOnline.runtimeconfig.json
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\bin\Debug\netcoreapp3.1\MuOnline.runtimeconfig.dev.json
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\bin\Debug\netcoreapp3.1\MuOnline.dll
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\bin\Debug\netcoreapp3.1\MuOnline.pdb
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.dll
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.pdb
+C:\Users\flame\source\repos\Mid Exam - 29 February 2020 Group 1\MuOnline\obj\Debug\netcoreapp3.1\MuOnline.genruntimeconfig.cache

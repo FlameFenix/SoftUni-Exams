@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,21 +16,21 @@ namespace Inventory
 
             while (command[0] != "Craft!")
             {
-                if(command[0] == "Collect")
+                if (command[0] == "Collect")
                 {
-                    if(!items.Contains(command[1]))
+                    if (!items.Contains(command[1]))
                     {
                         items.Add(command[1]);
                     }
                 }
-                else if(command[0] == "Drop")
+                else if (command[0] == "Drop")
                 {
-                    if(items.Contains(command[1]))
+                    if (items.Contains(command[1]))
                     {
                         items.Remove(command[1]);
                     }
                 }
-                else if(command[0] == "Combine Items")
+                else if (command[0] == "Combine Items")
                 {
                     for (int i = 0; i < command.Count; i++)
                     {
@@ -38,14 +38,14 @@ namespace Inventory
                     }
                     if (items.Contains(separetedItem[0]))
                     {
-                        
+
                         int currentIndex = items.IndexOf(separetedItem[0]);
                         items.Insert(currentIndex + 1, separetedItem[1]);
                     }
                 }
-                else if(command[0] == "Renew")
+                else if (command[0] == "Renew")
                 {
-                    if(items.Contains(command[1]))
+                    if (items.Contains(command[1]))
                     {
                         int currentIndex = items.IndexOf(command[1]);
                         items.Add(command[1]);

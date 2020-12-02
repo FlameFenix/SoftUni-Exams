@@ -1,8 +1,6 @@
+﻿using System;
 
-using System;
-using System.Numerics;
-
-namespace Exams
+namespace Bonus_Scoring_System
 {
     class Program
     {
@@ -19,9 +17,9 @@ namespace Exams
                 int studentAttendance = int.Parse(Console.ReadLine());
                 double bonus = 0;
 
-                bonus = (double) studentAttendance / countOfLectures * (5 + additionalBonus);
+                bonus = (double)studentAttendance / countOfLectures * (5 + additionalBonus);
 
-                if(bonus > bestBonus)
+                if (bonus > bestBonus)
                 {
                     bestBonus = bonus;
                     bestStudent = studentAttendance;
