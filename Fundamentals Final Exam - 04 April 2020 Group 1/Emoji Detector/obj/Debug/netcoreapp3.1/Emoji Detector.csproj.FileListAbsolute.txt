@@ -1,0 +1,13 @@
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\bin\Debug\netcoreapp3.1\Emoji Detector.exe
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\bin\Debug\netcoreapp3.1\Emoji Detector.deps.json
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\bin\Debug\netcoreapp3.1\Emoji Detector.runtimeconfig.json
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\bin\Debug\netcoreapp3.1\Emoji Detector.runtimeconfig.dev.json
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\bin\Debug\netcoreapp3.1\Emoji Detector.dll
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\bin\Debug\netcoreapp3.1\Emoji Detector.pdb
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.csprojAssemblyReference.cache
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.AssemblyInfoInputs.cache
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.AssemblyInfo.cs
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.csproj.CoreCompileInputs.cache
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.dll
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.pdb
+C:\Users\flame\source\repos\Fundamentals Final Exam - 04 April 2020 Group 1\Emoji Detector\obj\Debug\netcoreapp3.1\Emoji Detector.genruntimeconfig.cache
