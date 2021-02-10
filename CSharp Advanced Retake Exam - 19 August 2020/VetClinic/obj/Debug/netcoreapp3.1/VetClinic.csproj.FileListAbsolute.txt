@@ -1,0 +1,13 @@
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\bin\Debug\netcoreapp3.1\VetClinic.exe
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\bin\Debug\netcoreapp3.1\VetClinic.deps.json
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\bin\Debug\netcoreapp3.1\VetClinic.runtimeconfig.json
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\bin\Debug\netcoreapp3.1\VetClinic.runtimeconfig.dev.json
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\bin\Debug\netcoreapp3.1\VetClinic.dll
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\bin\Debug\netcoreapp3.1\VetClinic.pdb
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.csprojAssemblyReference.cache
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.AssemblyInfoInputs.cache
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.AssemblyInfo.cs
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.csproj.CoreCompileInputs.cache
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.dll
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.pdb
+C:\Users\flame\source\repos\CSharp Advanced Retake Exam - 19 August 2020\VetClinic\obj\Debug\netcoreapp3.1\VetClinic.genruntimeconfig.cache
