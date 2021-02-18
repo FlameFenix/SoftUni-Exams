@@ -77,14 +77,27 @@ namespace Cooking
                 }
             }
 
-            if(stackIngredients.Count == 0 && queueLiquids.Count == 0
-                && food["Bread"] >= 1 && food["Cake"] >= 1 
+            if(food["Bread"] >= 1 && food["Cake"] >= 1 
                 && food["Pastry"] >= 1 && food["Fruit Pie"] >= 1)
             {
                 Console.WriteLine("Wohoo! You succeeded in cooking all the food!");
-                Console.WriteLine("Liquids left: none");
-                Console.WriteLine("Ingredients left: none");
+                if (stackIngredients.Count > 0 && queueLiquids.Count == 0)
+                {
+                    Console.WriteLine("Liquids left: none");
+                    Console.WriteLine($"Ingredients left: {string.Join(", ", stackIngredients)}");
 
+                }
+                else if (queueLiquids.Count > 0 && stackIngredients.Count == 0)
+                {
+                    Console.WriteLine($"Liquids left: {string.Join(", ", queueLiquids)}");
+                    Console.WriteLine("Ingredients left: none");
+
+                }
+                else
+                {
+                    Console.WriteLine("Liquids left: none");
+                    Console.WriteLine("Ingredients left: none");
+                }
                 PrintFood(food);
             }
             else
