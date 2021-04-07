@@ -26,7 +26,7 @@ namespace EasterRaces.Models.Races.Entities
             {
                 if (string.IsNullOrWhiteSpace(value) || value.Length < 5)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidName);
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidName,value, 5));
                 }
                 this.name = value;
             }
@@ -39,7 +39,7 @@ namespace EasterRaces.Models.Races.Entities
             {
                 if (value < 1)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidNumberOfLaps);
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidNumberOfLaps , 1));
                 }
                 this.laps = value;
             }

@@ -32,7 +32,7 @@ namespace EasterRaces.Models.Cars.Entities
             {
                 if (string.IsNullOrWhiteSpace(value) || value.Length < 4)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidModel);
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidModel, value, 4));
                 }
 
                 this.model = value;
@@ -51,7 +51,7 @@ namespace EasterRaces.Models.Cars.Entities
                 }
                 else
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidHorsePower);
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidHorsePower, value));
                 }
 
             }

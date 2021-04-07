@@ -28,46 +28,40 @@ namespace EasterRaces.Core.Entities
         public string AddCarToDriver(string driverName, string carModel)
         {
             IDriver driver = drivers.GetByName(driverName);
-            if(driver != null)
+
+            ICar car = cars.GetByName(carModel);
+            if (car == null)
             {
-                ICar car = cars.GetByName(carModel);
-                if(car != null)
-                {
-                    driver.AddCar(car);
-                    return $"Driver {driverName} received car {carModel}.";
-                }
-                else
-                {
-                    throw new InvalidOperationException(ExceptionMessages.CarNotFound);
-                }
+                throw new InvalidOperationException(string.Format(ExceptionMessages.CarNotFound , carModel));
             }
-            else
+
+            if (driver == null)
             {
-                throw new InvalidOperationException(ExceptionMessages.DriverNotFound);
+                throw new InvalidOperationException(string.Format(ExceptionMessages.DriverNotFound, driverName));
             }
+
+            driver.AddCar(car);
+            return $"{string.Format(OutputMessages.CarAdded, driverName, carModel)}";
+            
         }
 
         public string AddDriverToRace(string raceName, string driverName)
         {
             IRace race = races.GetByName(raceName);
+            IDriver driver = drivers.GetByName(driverName);
 
-            if(race != null)
+            if(race == null)
             {
-                IDriver driver = drivers.GetByName(driverName);
-                if(driver != null)
-                {
-                    race.AddDriver(driver);
-                    return $"Driver {driverName} added in {raceName} race.";
-                }
-                else
-                {
-                    throw new InvalidOperationException(ExceptionMessages.DriverNotFound);
-                }
+                throw new InvalidOperationException(string.Format(ExceptionMessages.RaceNotFound, raceName));
             }
-            else
+            if(driver == null)
             {
-                throw new InvalidOperationException(ExceptionMessages.RaceNotFound);
+                throw new InvalidOperationException(string.Format(ExceptionMessages.DriverNotFound, driverName));
             }
+
+            race.AddDriver(driver);
+            return $"{string.Format(OutputMessages.DriverAdded, driverName, raceName)}";
+            
         }
 
         public string CreateCar(string type, string model, int horsePower)
@@ -75,16 +69,18 @@ namespace EasterRaces.Core.Entities
             if ("Muscle" == type)
             {
                 MuscleCar car = new MuscleCar(model, horsePower);
-                if(cars.GetByName(model) != null)
+                if (cars.GetByName(model) != null)
                 {
-                    throw new ArgumentException(ExceptionMessages.CarExists);
+                    throw new ArgumentException(string.Format(ExceptionMessages.CarExists, model));
                 }
                 else
                 {
                     cars.Add(car);
-                    return $"{car.GetType().Name} {model} is created.";
+                    return $"{string.Format(OutputMessages.CarCreated, car.GetType().Name, model)}";
+
+
                 }
-                
+
             }
             else
             {
@@ -92,12 +88,13 @@ namespace EasterRaces.Core.Entities
 
                 if (cars.GetByName(model) != null)
                 {
-                    throw new ArgumentException(ExceptionMessages.CarExists);
+                    throw new ArgumentException(string.Format(ExceptionMessages.CarExists, model));
                 }
                 else
                 {
                     cars.Add(car);
-                    return $"{car.GetType().Name} {model} is created.";
+                    return $"{string.Format(OutputMessages.CarCreated, car.GetType().Name, model)}";
+                    
                 }
             }
         }
@@ -106,29 +103,29 @@ namespace EasterRaces.Core.Entities
         {
             Driver driver = new Driver(driverName);
 
-            if(drivers.GetByName(driverName) != null)
+            if (drivers.GetByName(driverName) != null)
             {
-                throw new ArgumentException(ExceptionMessages.DriversExists);
+                throw new ArgumentException(string.Format(ExceptionMessages.DriversExists, driverName));
             }
             else
             {
                 drivers.Add(driver);
-                return $"Driver {driverName} is created.";
+                return $"{string.Format(OutputMessages.DriverCreated, driverName)}";
             }
-            
+
         }
 
         public string CreateRace(string name, int laps)
         {
             IRace race = new Race(name, laps);
-            if(races.GetByName(name) != null)
+            if (races.GetByName(name) != null)
             {
-                throw new InvalidOperationException(ExceptionMessages.RaceExists);
+                throw new InvalidOperationException(string.Format(ExceptionMessages.RaceExists, name));
             }
             else
             {
                 races.Add(race);
-                return $"Race {name} is created.";
+                return $"{string.Format(OutputMessages.RaceCreated, name)}";
             }
         }
 
@@ -136,10 +133,10 @@ namespace EasterRaces.Core.Entities
         {
             IRace race = races.GetByName(raceName);
             if (race != null)
-            {      
-                if(race.Drivers.Count < 3)
+            {
+                if (race.Drivers.Count < 3)
                 {
-                    throw new InvalidOperationException(ExceptionMessages.RaceInvalid);
+                    throw new InvalidOperationException(string.Format(ExceptionMessages.RaceInvalid, raceName, 3));
                 }
                 else
                 {
@@ -159,30 +156,33 @@ namespace EasterRaces.Core.Entities
                     {
                         count++;
 
-                        if(count == 1)
+                        if (count == 1)
                         {
-                            output += $"Driver {item.Key.Name} wins {race.Name} race." + Environment.NewLine;
+                            output += $"{string.Format(OutputMessages.DriverFirstPosition, item.Key.Name, race.Name)}" + Environment.NewLine;
+                            
                         }
-                        else if(count == 2)
+                        else if (count == 2)
                         {
-                            output += $"Driver {item.Key.Name} is second in {raceName} race." + Environment.NewLine;
+                            output += $"{string.Format(OutputMessages.DriverSecondPosition, item.Key.Name, raceName)}" + Environment.NewLine;
+                            
                         }
-                        else if(count == 3)
+                        else if (count == 3)
                         {
-                            output += $"Driver {item.Key.Name} is third in {raceName} race.";
+                            output += $"{string.Format(OutputMessages.DriverThirdPosition, item.Key.Name, raceName)}";
+                            
                         }
                     }
 
                     races.Remove(race);
 
                     return output;
-                           
-                          
+
+
                 }
             }
             else
             {
-                throw new InvalidOperationException(ExceptionMessages.RaceNotFound);
+                throw new InvalidOperationException(string.Format(ExceptionMessages.RaceNotFound, raceName));
             }
         }
     }
