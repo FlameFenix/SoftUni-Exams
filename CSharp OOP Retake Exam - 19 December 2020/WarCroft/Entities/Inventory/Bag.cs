@@ -23,7 +23,10 @@ namespace WarCroft.Entities.Inventory
             get => this.capacity;
             set
             {
-                this.capacity = value;
+                if(value >= 0 && value <= 100)
+                {
+                    this.capacity = value;
+                }   
             }
         }
 

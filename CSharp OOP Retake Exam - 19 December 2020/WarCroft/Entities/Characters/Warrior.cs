@@ -9,16 +9,12 @@ namespace WarCroft.Entities.Characters
 {
     public class Warrior : Character, IAttacker
     {
-        private const double baseHealth = 100;
-        private const double baseArmor = 50;
-        private const double abilityPoints = 40;
+        private const double basehealth = 100;
+        private const double basearmor = 50;
+        private const double abilitypoints = 40;
         public Warrior(string name)
-            : base(name, baseHealth, baseArmor, abilityPoints, new Satchel())
+            : base(name, basehealth, basearmor, abilitypoints, new Satchel())
         {
-            this.BaseHealth = baseHealth;
-            this.BaseArmor = baseArmor;
-            this.Health = BaseHealth;
-            this.Armor = BaseArmor;
 
         }
         public void Attack(Character character)

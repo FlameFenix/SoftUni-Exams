@@ -13,16 +13,19 @@ namespace WarCroft.Entities.Characters.Contracts
         public Priest(string name) 
             : base(name, health, armor, abilityPoints, new Backpack())
         {
-            this.BaseHealth = health;
-            this.BaseArmor = armor;
-            this.Health = BaseHealth;
-            this.Armor = BaseArmor;
+
         }
 
         public void Heal(Character character)
         {
             if(this.IsAlive && character.IsAlive)
             {
+                
+                if(character.Health + AbilityPoints > character.BaseHealth)
+                {
+                    character.Health = character.BaseHealth;
+                }
+
                 character.Health += abilityPoints;
             }
         }

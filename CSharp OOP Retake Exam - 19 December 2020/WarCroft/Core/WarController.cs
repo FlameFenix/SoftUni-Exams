@@ -11,12 +11,12 @@ namespace WarCroft.Core
 {
 	public class WarController
 	{
-		private List<Character> characters;
-		private List<Item> itemsPool;
+		private List<Character> party;
+		private List<Item> pool;
 		public WarController()
 		{
-			characters = new List<Character>();
-			itemsPool = new List<Item>();
+			party = new List<Character>();
+			pool = new List<Item>();
 		}
 
 		public string JoinParty(string[] args)
@@ -29,12 +29,12 @@ namespace WarCroft.Core
 			if (characterType is nameof(Warrior))
 			{
 				character = new Warrior(name);
-				characters.Add(character);
+				party.Add(character);
 			}
 			else if (characterType is nameof(Priest))
             {
 				character = new Priest(name);
-				characters.Add(character);
+				party.Add(character);
             }
 			else
             {
@@ -62,7 +62,7 @@ namespace WarCroft.Core
 				throw new ArgumentException(string.Format(ExceptionMessages.InvalidItem, itemName));
             }
 
-			itemsPool.Add(item);
+			pool.Add(item);
 
 			return string.Format(SuccessMessages.AddItemToPool, itemName);
 		}
@@ -71,21 +71,21 @@ namespace WarCroft.Core
 		{
 			string characterName = args[0];
 
-			Character character = characters.FirstOrDefault(x => x.Name == characterName);
+			Character character = party.FirstOrDefault(x => x.Name == characterName);
 
 			if(character == null)
             {
 				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, characterName));
             }
 
-			if(itemsPool.Count == 0)
+			if(pool.Count == 0)
             {
 				throw new InvalidOperationException(ExceptionMessages.ItemPoolEmpty);
             }
 
-			Item lastItem = itemsPool.FirstOrDefault(x => x == itemsPool[itemsPool.Count - 1]);
+			Item lastItem = pool.FirstOrDefault(x => x == pool[pool.Count - 1]);
 			character.Bag.AddItem(lastItem);
-			itemsPool.Remove(lastItem);
+			pool.Remove(lastItem);
 
 			return string.Format(SuccessMessages.PickUpItem, characterName, lastItem.GetType().Name);
 		}
@@ -95,7 +95,7 @@ namespace WarCroft.Core
 			string characterName = args[0];
 			string itemName = args[1];
 
-			Character character = characters.FirstOrDefault(x => x.Name == characterName);
+			Character character = party.FirstOrDefault(x => x.Name == characterName);
 
 			if(character == null)
             {
@@ -112,7 +112,7 @@ namespace WarCroft.Core
 		{
 			StringBuilder sb = new StringBuilder();
 
-            foreach (var item in characters.OrderByDescending(x => x.IsAlive).ThenByDescending(x => x.Health))
+            foreach (var item in party.OrderByDescending(x => x.IsAlive).ThenByDescending(x => x.Health))
             {
 				sb.AppendLine(string.Format(SuccessMessages.CharacterStats, item.Name, item.Health ,item.BaseHealth, item.Armor, item.BaseArmor, item.IsAlive ? "Alive" : "Dead"));
             }
@@ -125,26 +125,26 @@ namespace WarCroft.Core
 			string atackerName = args[0];
 			string recieverName = args[1];
 
-			Warrior atacker = (Warrior) characters.FirstOrDefault(x => x.Name == atackerName);
-
-			if(atacker == null)
+			if(!party.Any(x => x.Name == atackerName))
             {
 				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, atackerName));
             }
 
-			Character reciever = characters.FirstOrDefault(x => x.Name == recieverName);
-
-			if(reciever == null)
+			if(!party.Any(x => x.Name == recieverName))
             {
 				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, recieverName));
 			}
 
-			if (!atacker.IsAlive || atacker.AbilityPoints <= 0)
+
+			Character atacker = party.FirstOrDefault(x => x.Name == atackerName);
+			Character reciever = party.FirstOrDefault(x => x.Name == recieverName);
+
+			if (atacker.GetType().Name != "Warrior")
             {
 				throw new ArgumentException(ExceptionMessages.AttackFail, atackerName);
             }
-
-			atacker.Attack(reciever);
+			Warrior warrior = (Warrior) atacker;
+			warrior.Attack(reciever);
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine(string.Format(SuccessMessages.AttackCharacter,
 			atacker.Name, reciever.Name, atacker.AbilityPoints, reciever.Name, reciever.Health, reciever.BaseHealth, reciever.Armor, reciever.BaseArmor));
@@ -162,26 +162,31 @@ namespace WarCroft.Core
 			string healerName = args[0];
 			string healingRecieverName = args[1];
 
-			Priest healer = (Priest)characters.FirstOrDefault(x => x.Name == healerName);
+			
 
-			if(healer == null)
+			if(!party.Any(x => x.Name == healerName))
             {
 				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, healerName));
             }
 
-			Character reciever = characters.FirstOrDefault(x => x.Name == healingRecieverName);
-
-			if(reciever == null)
+			if(!party.Any(x => x.Name == healingRecieverName))
             {
 				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, healingRecieverName));
 			}
 
-			if(!healer.IsAlive || healer.AbilityPoints <= 0)
-            {
-				throw new ArgumentException(string.Format(ExceptionMessages.HealerCannotHeal), healerName);
-            }
+			Character healer = party.FirstOrDefault(x => x.Name == healerName);
 
-			healer.Heal(reciever);
+			if(healer.GetType().Name != "Priest")
+            {
+				throw new ArgumentException(string.Format(ExceptionMessages.HealerCannotHeal, healerName));
+
+			}
+
+			Character reciever = party.FirstOrDefault(x => x.Name == healingRecieverName);
+			Priest priest = (Priest) healer;
+
+			priest.Heal(reciever);
+
 			return string.Format(SuccessMessages.HealCharacter, healer.Name, reciever.Name, healer.AbilityPoints, reciever.Name, reciever.Health);
 		}
 	}

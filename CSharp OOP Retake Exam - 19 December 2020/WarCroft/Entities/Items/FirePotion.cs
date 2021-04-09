@@ -7,9 +7,9 @@ namespace WarCroft.Entities.Items
 {
     public class FirePotion : Item
     {
-        private const int weightConst = 5;
+        private const int weight = 5;
         public FirePotion()
-            : base(weightConst)
+            : base(weight)
         {
 
         }
@@ -20,8 +20,8 @@ namespace WarCroft.Entities.Items
             {
                 if (character.Health - 20 <= 0)
                 {
-                    character.IsAlive = false;
                     character.Health = 0;
+                    character.IsAlive = false;
                 }
                 else
                 {

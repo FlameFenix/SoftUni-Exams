@@ -9,18 +9,16 @@ namespace WarCroft.Entities.Characters.Contracts
     public abstract class Character
     {
         private string name;
-        private double baseHealth;
         private double health;
-        private double baseArmor;
         private double armor;
-        private double abilityPoints;
-        private IBag bag;
 
         // TODO: Implement the rest of the class.
         public Character(string name, double health, double armor, double abilityPoints, Bag bag)
         {
             this.Name = name;
+            this.BaseHealth = health;
             this.Health = health;
+            this.BaseArmor = armor;
             this.Armor = armor;
             this.AbilityPoints = abilityPoints;
             this.Bag = bag;
@@ -40,42 +38,28 @@ namespace WarCroft.Entities.Characters.Contracts
             }
         }
 
-        public double BaseHealth
-        {
-            get => this.baseHealth;
-            protected set
-            {
-                this.baseHealth = value;
-            }
-        }
+        public double BaseHealth { get; private set; }
 
         public double Health
         {
             get => this.health;
             set
             {
-                if (value >= 0 && value <= baseHealth)
+                if (value > 0 && value <= this.BaseHealth)
                 {
                     this.health = value;
                 }
             }
         }
 
-        public double BaseArmor
-        {
-            get => this.baseArmor;
-            protected set
-            {
-                this.baseArmor = value;
-            }
-        }
+        public double BaseArmor { get; private set; }
 
         public double Armor
         {
             get => this.armor;
-            protected set
+            private set
             {
-                if (value >= 0 && value <= this.baseArmor)
+                if (value > 0 && value <= this.BaseArmor)
                 {
                     this.armor = value;
                 }
@@ -83,22 +67,8 @@ namespace WarCroft.Entities.Characters.Contracts
             }
         }
 
-        public double AbilityPoints
-        {
-            get => this.abilityPoints;
-            protected set
-            {
-                this.abilityPoints = value;
-            }
-        }
-        public IBag Bag
-        {
-            get => this.bag;
-            protected set
-            {
-                this.bag = value;
-            }
-        }
+        public double AbilityPoints { get; private set; }
+        public IBag Bag     { get; private set; }
 
         public void TakeDamage(double hitPoints)
         {
@@ -118,14 +88,9 @@ namespace WarCroft.Entities.Characters.Contracts
                 }
                 else
                 {
-                    this.health = 0;
                     IsAlive = false;
-
+                    this.health = 0;
                 }
-            }
-            else
-            {
-                throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
             }
         }
 
