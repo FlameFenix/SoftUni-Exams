@@ -20,64 +20,59 @@ namespace Sneaking
             int[] deadLocation = new int[2];
             for (int i = 0; i < directions.Length; i++)
             {
-                char currentDirection = direction[i];
-
                 for (int rows = 0; rows < matrix.Length; rows++)
                 {
+                    bool isSet = false;
                     for (int cols = 0; cols < matrix[rows].Length; cols++)
                     {
                         deadLocation = GetPosition(matrix, deadLocation);
-                        if (matrix[rows][cols] == 'b')
+                        
+                        
+                        if (matrix[rows][cols] == 'b' && isAlive && !isNikoladzeDead)
                         {
-                            bool isValid = false;
-                            isValid = CheckIndex(matrix, rows, cols + 1);
-                            if (isValid && isAlive)
+                            bool isValid = CheckIndex(matrix, rows, cols + 1);
+                            if(isValid)
                             {
+                                isAlive = CheckRowForSamOnRight(matrix, isAlive, rows, cols + 1);
+                                if (!isAlive) { break; }
                                 matrix[rows][cols] = '.';
-                                if (matrix[rows][cols + 1] == '.')
-                                {
-                                    matrix[rows][cols + 1] = 'b';
-                                    isAlive = CheckRowForSamOnRight(matrix, isAlive, rows, cols);
-                                }
+                                matrix[rows][cols + 1] = 'b';
+                                isSet = true;
                             }
                             else
                             {
                                 matrix[rows][cols] = 'd';
                                 isAlive = CheckRowForSamOnLeft(matrix, isAlive, rows, cols);
+                                isSet = true;
                             }
-
                             break;
-
                         }
-                        if (matrix[rows][cols] == 'd')
+                        else if (matrix[rows][cols] == 'd' && isAlive && !isNikoladzeDead) 
                         {
-
-                            bool isValid = false;
-                            isValid = CheckIndex(matrix, rows, cols - 1);
-
-                            if (isValid && isAlive)
+                            bool isValid = CheckIndex(matrix, rows, cols -1);
+                            if (isValid)
                             {
+                                isAlive = CheckRowForSamOnLeft(matrix, isAlive, rows, cols - 1);
+                                if (!isAlive) { break; }
                                 matrix[rows][cols] = '.';
-                                if (matrix[rows][cols - 1] == '.')
-                                {
-                                    matrix[rows][cols - 1] = 'd';
-                                }
-                                isAlive = CheckRowForSamOnLeft(matrix, isAlive, rows, cols);
+                                matrix[rows][cols -1] = 'd';
+
+                                isSet = true;
                             }
                             else
                             {
                                 matrix[rows][cols] = 'b';
                                 isAlive = CheckRowForSamOnRight(matrix, isAlive, rows, cols);
+                                if (!isAlive) { break; }
+                                isSet = true;
                             }
-
                             break;
                         }
                     }
-                    if (!isAlive)
-                    {
-                        break;
-                    }
+                    if (!isAlive && isNikoladzeDead && isSet) { break; };
                 }
+
+                char currentDirection = direction[i];
 
                 if (isAlive)
                 {
@@ -90,29 +85,13 @@ namespace Sneaking
 
                     if (currentDirection == 'U')
                     {
-                        if (matrix[row - 1][col] == 'N')
-                        {
-                            matrix[row][col] = 'S';
-                            matrix[row - 1][col] = 'X';
-                        }
-                        else
-                        {
-                            matrix[row - 1][col] = 'S';
-                            isNikoladzeDead = CheckForNikoladze(matrix, row - 1);
-                        }
+                        matrix[row - 1][col] = 'S';
+                        isNikoladzeDead = CheckForNikoladze(matrix, row - 1);
                     }
                     else if (currentDirection == 'D')
                     {
-                        if (matrix[row + 1][col] == 'N')
-                        {
-                            matrix[row][col] = 'S';
-                            matrix[row + 1][col] = 'X';
-                        }
-                        else
-                        {
-                            matrix[row + 1][col] = 'S';
-                            isNikoladzeDead = CheckForNikoladze(matrix, row + 1);
-                        }
+                        matrix[row + 1][col] = 'S';
+                        isNikoladzeDead = CheckForNikoladze(matrix, row + 1);
                     }
                     else if (currentDirection == 'L')
                     {
@@ -127,25 +106,19 @@ namespace Sneaking
                         matrix[row][col] = 'S';
                     }
 
-                    if (isNikoladzeDead)
-                    {
-                        break;
-                    }
+                    
                 }
-                else
+                if (isNikoladzeDead || !isAlive)
                 {
+                    Console.WriteLine($"{(isNikoladzeDead ? "Nikoladze killed!" : $"Sam died at {deadLocation[0]}, {deadLocation[1]}")}");
+                    PrintMatrix(matrix);
                     break;
                 }
             }
-            if (!isAlive)
-            {
-                Console.WriteLine($"Sam died at {deadLocation[0]}, {deadLocation[1]}");
-            }
-            else if (isNikoladzeDead)
-            {
-                Console.WriteLine("Nikoladze killed!");
-            }
-            PrintMatrix(matrix);
+
+            
+
+            
         }
 
         private static bool CheckForNikoladze(char[][] matrix, int row)
