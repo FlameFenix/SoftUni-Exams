@@ -9,6 +9,7 @@ import cataloguePage from "./pages/catalogue/catalogue.js";
 import homePage from "./pages/home/home.js";
 import createPage from "./pages/create/create.js";
 import detailsPage from "./pages/details/details.js";
+import editPage from "./pages/edit/edit.js";
 
 let navElement = document.querySelector('header');
 let mainElement = document.querySelector('#main-content');
@@ -25,6 +26,7 @@ cataloguePage.initialize(page, mainRenderHandler, gamesService);
 homePage.initialize(page, mainRenderHandler, gamesService);
 createPage.initialize(page, mainRenderHandler, gamesService);
 detailsPage.initialize(page, mainRenderHandler, gamesService);
+editPage.initialize(page,mainRenderHandler, gamesService);
 
 page('/', '/home');
 page('/index.html', '/home');
@@ -38,6 +40,7 @@ page('/catalogue', cataloguePage.getView);
 page('/home', homePage.getView);
 page('/create', createPage.getView);
 page('/details/:id', detailsPage.getView);
+page('/edit/:gameId', editPage.getView)
 
 page.start();
 

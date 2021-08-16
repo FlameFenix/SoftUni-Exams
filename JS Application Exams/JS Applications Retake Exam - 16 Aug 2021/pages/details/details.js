@@ -28,7 +28,7 @@ async function getView(context) {
         isOwner = true;
     }
     let model = {
-        meme,
+        game,
         deleteHandler,
         isOwner
     };

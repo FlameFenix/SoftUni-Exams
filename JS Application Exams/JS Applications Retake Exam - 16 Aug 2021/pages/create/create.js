@@ -23,13 +23,13 @@ async function submitHandler(e){
         }
 
         let category = formData.get('category');
-        if(description.trim() === ''){
+        if(category.trim() === ''){
             window.alert('Category is required');
             emptyField = true;
         }
 
         let maxLevel = formData.get('maxLevel');
-        if(description.trim() === ''){
+        if(maxLevel.trim() === ''){
             window.alert('MaxLevel is required');
             emptyField = true;
         }
@@ -41,7 +41,7 @@ async function submitHandler(e){
         }
 
         let summary = formData.get('summary');
-        if(imageUrl.trim() === ''){
+        if(summary.trim() === ''){
             window.alert('Summary is required');
             emptyField = true;
         }
@@ -58,7 +58,7 @@ async function submitHandler(e){
             summary
         }
     
-        let loginResult = await _gamesService.create(meme);
+        let loginResult = await _gamesService.create(game);
         _router.redirect('/all-memes');
     } catch (err){
         alert(err);
