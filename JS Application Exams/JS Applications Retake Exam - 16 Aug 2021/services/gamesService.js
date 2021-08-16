@@ -1,7 +1,7 @@
 import { jsonRequest } from "../helpers/jsonRequest.js";
 
 
-let baseUrl = 'http://localhost:3000/data/memes';
+let baseUrl = 'http://localhost:3000/data/games';
 
 async function getAll(){
     let result = await jsonRequest(baseUrl);

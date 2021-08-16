@@ -1,8 +1,8 @@
 import { html } from "./../../node_modules/lit-html/lit-html.js";
 
-export let registerTemplate = () => html`
+export let registerTemplate = (model) => html`
 <section id="register-page" class="content auth">
-            <form id="register">
+            <form @submit=${model.submitHandler} id="register">
                 <div class="container">
                     <div class="brand-logo"></div>
                     <h1>Register</h1>
