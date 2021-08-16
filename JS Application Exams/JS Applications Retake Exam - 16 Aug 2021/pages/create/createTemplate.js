@@ -1,8 +1,8 @@
 import { html } from "./../../node_modules/lit-html/lit-html.js";
 
-export let createTemplate = () => html`
+export let createTemplate = (model) => html`
 <section id="create-page" class="auth">
-            <form id="create">
+            <form @submit=${model.submitHandler} id="create">
                 <div class="container">
 
                     <h1>Create Game</h1>

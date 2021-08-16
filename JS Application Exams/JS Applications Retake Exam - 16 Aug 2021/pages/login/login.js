@@ -40,7 +40,7 @@ async function submitHandler(e){
         }
     
         let loginResult = await _authService.login(user);
-        _router.redirect('/all-memes');
+        _router.redirect('/home');
     } catch (err){
         // alert(err);
     }

@@ -11,7 +11,7 @@ function initialize(router, renderHandler, gamesService) {
 }
 
 async function getView(context) {
-    let allGames = await _gamesService.getAllMemes();
+    let allGames = await _gamesService.getAllGames();
     console.log(allGames);
     let templateResult = catalogueTemplate(allGames);
     _renderHandler(templateResult);

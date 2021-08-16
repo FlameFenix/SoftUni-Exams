@@ -1,22 +1,19 @@
 import { html } from "./../../node_modules/lit-html/lit-html.js";
 
-export let detailsTemplate = () => html`
+export let detailsTemplate = (details) => html`
 <section id="game-details">
 <h1>Game Details</h1>
 <div class="info-section">
 
     <div class="game-header">
-        <img class="game-img" src="images/MineCraft.png" />
-        <h1>Bright</h1>
-        <span class="levels">MaxLevel: 4</span>
-        <p class="type">Action, Crime, Fantasy</p>
+        <img class="game-img" src="${details.game.imageUrl}" />
+        <h1>${details.game.title}</h1>
+        <span class="levels">MaxLevel: ${details.game.maxLevel}</span>
+        <p class="type">${details.game.category}</p>
     </div>
 
     <p class="text">
-        Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work
-        with an Orc to find a weapon everyone is prepared to kill for. Set in a world where fantasy
-        creatures live side by side with humans. A human cop is forced
-        to work with an Orc to find a weapon everyone is prepared to kill for.
+    ${details.game.summary}
     </p>
 
     <!-- Bonus ( for Guests and Users ) -->
@@ -34,12 +31,11 @@ export let detailsTemplate = () => html`
         <!-- Display paragraph: If there are no games in the database -->
         <p class="no-comment">No comments.</p>
     </div>
-
-    <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-    <div class="buttons">
-        <a href="#" class="button">Edit</a>
-        <a href="#" class="button">Delete</a>
-    </div>
+    ${details.isOwner ? html`<div class="buttons">
+    <a href="/edit/${details.game._id}" class="button">Edit</a>
+    <a href="javascript:void(0)" @click=${(e) => details.deleteHandler(details.game._id, e)} class="button">Delete</a>`: ''}
+</div>
+    
 </div>
 
 <!-- Bonus -->

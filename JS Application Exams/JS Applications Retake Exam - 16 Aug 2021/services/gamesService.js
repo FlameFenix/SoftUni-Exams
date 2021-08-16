@@ -23,13 +23,13 @@ async function update(item, id){
     return result;
 }
 
-async function getAllMemes(){
+async function getAllGames(){
     let result = await jsonRequest(`${baseUrl}?sortBy=_createdOn%20desc`);
     return result;
 }
 
-async function getMyMemes(userId){
-    let result = await jsonRequest(`${baseUrl}?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+async function getRecentGames(){
+    let result = await jsonRequest(`${baseUrl}?sortBy=_createdOn%20desc&distinct=category`);
     return result;
 }
 
@@ -45,6 +45,6 @@ export default {
     create,
     update,
     deleteItem,
-    getAllMemes,
-    getMyMemes
+    getAllGames,
+    getRecentGames
 }

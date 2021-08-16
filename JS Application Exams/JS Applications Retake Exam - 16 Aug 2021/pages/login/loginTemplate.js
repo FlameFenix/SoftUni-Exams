@@ -14,7 +14,7 @@ export let loginTemplate = (model) => html`
                     <input type="password" id="login-password" name="password">
                     <input type="submit" class="btn submit" value="Login">
                     <p class="field">
-                        <span>If you don't have profile click <a href="#">here</a></span>
+                        <span>If you don't have profile click <a href="/register">here</a></span>
                     </p>
                 </div>
             </form>
