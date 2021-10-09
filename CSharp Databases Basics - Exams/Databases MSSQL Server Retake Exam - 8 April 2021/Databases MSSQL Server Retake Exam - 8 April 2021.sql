@@ -90,3 +90,49 @@ JOIN Categories AS c
 ON r.[CategoryId] = c.Id
 WHERE FORMAT(r.OpenDate, 'dd-MM') = FORMAT(u.Birthdate, 'dd-MM')
 ORDER BY u.[Username], c.[Name]
+
+SELECT [FullName], COUNT(Username) FROM 
+(
+SELECT CONCAT(e.FirstName, ' ', e.LastName) AS FullName,
+r.UserId AS Username
+FROM Employees AS e
+LEFT JOIN Reports AS r 
+ON r.EmployeeId = e.Id
+) AS SubQuerry
+GROUP BY [FullName]
+ORDER BY COUNT(Username) DESC, FullName
+
+SELECT 
+CASE WHEN CONCAT(FirstName, ' ', LastName) = ' ' THEN 'None' ELSE CONCAT(FirstName, ' ', LastName) END AS Employee,
+ISNULL(d.[Name], 'None') AS Department,
+c.[Name] AS Category,
+r.[Description] AS [Description],
+FORMAT(r.[OpenDate], 'dd.MM.yyyy') AS [OpenDate],
+s.[Label] AS [Status],
+u.[Name] AS [User]
+FROM Reports AS r
+LEFT JOIN Employees AS e
+ON r.EmployeeId = e.Id
+LEFT JOIN Departments AS d
+ON e.DepartmentId = d.Id
+LEFT JOIN [Status] AS s
+ON s.Id = r.StatusId
+LEFT JOIN Users AS u
+ON r.UserId = u.Id
+LEFT JOIN Categories AS c
+ON r.CategoryId = c.Id
+ORDER BY [FirstName] DESC, [LastName] DESC, [Department], [Category], [Description], OpenDate, [Status], [User] 
+
+CREATE FUNCTION udf_HoursToComplete(@StartDate DATETIME, @EndDate DATETIME)
+RETURNS INT
+AS
+BEGIN
+IF(@StartDate IS NULL OR @EndDate IS NULL)
+	BEGIN
+		RETURN 0
+	END
+RETURN DATEDIFF(HOUR, @StartDate, @EndDate)
+END
+
+SELECT dbo.udf_HoursToComplete(OpenDate, CloseDate) AS TotalHours
+   FROM Reports
