@@ -2,6 +2,8 @@ CREATE DATABASE [Bitbucket]
 
 USE [Bitbucket]
 
+-- 1.DLL
+
 CREATE TABLE [Users](
  [Id] INT PRIMARY KEY IDENTITY,
  [Username] VARCHAR(30) NOT NULL,
@@ -44,6 +46,8 @@ CREATE TABLE [Files] (
 [CommitId] INT FOREIGN KEY REFERENCES [Commits]([Id]) NOT NULL
 )
 
+-- 2.Insert
+
 INSERT INTO [Files] ([Name], [Size], [ParentId], [CommitId])
 VALUES
 ('Trade.idk', 2598.0, 1, 1),
@@ -61,17 +65,13 @@ VALUES
 ('Implement documentation for UsersService.cs',	'closed',8, 2),
 ('Unreachable code in Index.cs', 'open',9, 8)
 
+-- 3. Update
 
 UPDATE Issues
 SET IssueStatus = 'closed'
 WHERE AssigneeId = 6
 
-SELECT * FROM RepositoriesContributors
-
-SELECT * FROM Repositories
-ORDER BY Name
-
-SELECT * FROM Issues
+--4. Delete
 
 DELETE RepositoriesContributors
 WHERE  RepositoryId = (
@@ -82,3 +82,31 @@ DELETE Issues
 WHERE RepositoryId = (
 SELECT Id FROM Repositories AS r
 WHERE r.[Name] = 'Softuni-Teamwork')
+
+-- 5. Commits
+
+SELECT [Id], [Message], [RepositoryId], [ContributorId] FROM Commits
+ORDER BY [Id], [Message], [RepositoryId], [ContributorId]
+
+-- 6. Front-end
+
+SELECT [Id], [Name], [Size] FROM Files
+WHERE Size > 1000 AND [Name] LIKE '%html%'
+ORDER BY Size DESC, Id, [Name]
+
+-- 7. Issue Assignment
+
+SELECT i.[Id], CONCAT(u.[UserName], ' : ', i.[Title]) FROM Issues AS i
+JOIN Users AS u ON i.[AssigneeId] = u.[Id]
+ORDER BY i.[Id] DESC, i.[AssigneeId]
+
+-- 8. Single Files
+
+-- 9. Commits in Repositories
+
+SELECT TOP (5) rp.Id, rp.[Name], COUNT(rp.Id) FROM Repositories AS rp
+JOIN RepositoriesContributors AS rc
+ON rp.Id = rc.RepositoryId
+JOIN Commits AS cm ON rp.Id = cm.RepositoryId 
+GROUP BY rp.Id, rp.[Name]
+ORDER BY COUNT(rp.Id) DESC, rp.Id, rp.[Name]
