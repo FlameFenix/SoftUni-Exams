@@ -102,6 +102,14 @@ ORDER BY i.[Id] DESC, i.[AssigneeId]
 
 -- 8. Single Files
 
+SELECT [Id], [Name], CONCAT([Size], 'KB') AS [Size] FROM Files 
+WHERE Id NOT IN ( 
+SELECT Id FROM Files AS f
+WHERE f.Id IN (SELECT ParentId FROM Files)
+)
+ORDER BY [Id], [Name], [Size]
+
+
 -- 9. Commits in Repositories
 
 SELECT TOP (5) rp.Id, rp.[Name], COUNT(rp.Id) FROM Repositories AS rp
@@ -110,3 +118,42 @@ ON rp.Id = rc.RepositoryId
 JOIN Commits AS cm ON rp.Id = cm.RepositoryId 
 GROUP BY rp.Id, rp.[Name]
 ORDER BY COUNT(rp.Id) DESC, rp.Id, rp.[Name]
+
+-- 10. Average Size
+
+SELECT u.Username, AVG(f.Size) FROM Users AS u
+JOIN Commits AS cm
+ON u.Id = cm.ContributorId
+JOIN Files AS f
+ON cm.Id = f.CommitId
+GROUP BY u.Username
+ORDER BY AVG(f.Size) DESC, u.Username
+
+-- 11. All User Commits
+
+CREATE FUNCTION udf_AllUserCommits(@username VARCHAR(30))
+RETURNS INT
+BEGIN
+DECLARE @Count AS INT
+IF( NOT EXISTS (SELECT 1 FROM Users WHERE Username = @username)) RETURN 0
+SET @Count = (SELECT COUNT(u.Username) FROM Commits AS c
+JOIN Users AS u
+ON c.ContributorId = u.Id
+WHERE u.Username = @username
+GROUP BY u.Username)
+
+RETURN @Count
+END
+
+SELECT dbo.udf_AllUserCommits('UnderSinduxrein')
+
+-- 12. Search for Files
+CREATE PROCEDURE usp_SearchForFiles(@fileExtension VARCHAR(20))
+AS
+BEGIN
+SELECT f.Id, f.[Name], CONCAT(f.Size, 'KB') AS Size FROM Files AS f
+WHERE f.[Name] LIKE ('%' + @fileExtension + '%')
+ORDER BY f.Id, f.[Name], f.Size DESC
+END
+
+EXEC usp_SearchForFiles 'txt'
