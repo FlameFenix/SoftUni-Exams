@@ -1,1 +1,28 @@
 /* TODO: Add the responsive styles here */
+
+@media screen and (max-width: 600px) {
+    .tm-gallery-item {
+        width: auto;
+    }
+
+    .tm-gallery {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    .tm-gallery-page {
+        margin: 0 auto;
+    }
+
+    .tm-header {
+        padding: 30px 40px;
+    }
+
+    .tm-cta-section {
+        width: auto;
+    }
+
+    .tm-section-title {
+        margin: 0 auto;
+    }
+}
