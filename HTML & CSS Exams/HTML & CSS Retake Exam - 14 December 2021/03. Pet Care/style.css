@@ -1,5 +1,7 @@
 .header {
     display: inline;
+    width: 100%;
+    height: 300px;
 }
 
 .nav {
@@ -33,13 +35,89 @@ header #logo {
 }
 
 header #header-background {
-    position: relative;
+    height: 400px;
+    width: 100%;
     top: 30px;
     z-index: -1;
 }
 
 header #dog-image {
+    margin-left: 20%;
+    width: 500px;
+}
+
+.header-info {
+    display: flex;
     position: absolute;
-    top: 0px;
-    height: 80%;
+    justify-content: center;
+    top: 100px;
+    margin-left: 20%;
+}
+
+article.info {
+    padding-left: 50px;
+    margin-left: 10%;
+    width: 30%;
+    color: white;
+    line-height: 3;
+}
+
+article.info h1 {
+    font-size: 32px;
+}
+
+article.info .btn {
+    margin-top: 30px;
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    color: orangered;
+    padding: 2px 40px;
+    cursor: pointer;
+}
+
+article.image {
+    margin-left: 100px;
+    margin-top: 13px;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+}
+
+.services h2 {
+    text-align: center;
+    padding-top: 50px;
+    font-weight: bold;
+
+}
+
+.services .p-desc {
+    text-align: center;
+}
+
+.article-items {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 50px;
+}
+
+.article-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid pink;
+    border-radius: 4px;
+    padding: 60px;
+}
+
+.article-item #bg {
+
+}
+
+.article-item img {
+    
 }
