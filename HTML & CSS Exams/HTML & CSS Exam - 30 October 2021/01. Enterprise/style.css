@@ -1,0 +1,68 @@
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+.container {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+    height: 300px;
+    padding: 30px;
+}
+
+.container .info {
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 50%;
+    line-height: 1;
+}
+
+.container .info span {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.container .info h2 {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+.container .info p.desc {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 20px;
+    width: 300px;
+}
+
+.container .sales-btn {
+    background-color: #796eff;
+    color: #fff;
+    border: none;
+    padding: 6px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.container .learn-btn {
+    padding: 5px 20px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: white;
+}
+
+.container .image img {
+    width: 70%;
+    margin-top: -14px;
+    margin-left: 30px;
+}
