@@ -21,8 +21,17 @@ header {
     align-items: center;
     text-align: center;
     gap: 10px;
-    background-color: green;
+    background-color: black;
+    opacity: 0.5;
     padding: 50px;
+}
+
+header img {
+    position: absolute;
+    object-fit: cover;
+    width: 1500px;
+    height: 350px;
+    z-index: -1;
 }
 
 .header-container h1 {
@@ -35,6 +44,20 @@ header {
     text-decoration: none;
 }
 
+.header-container a:nth-child(1) {
+    font-size: 18px;
+    display: block;
+    position: relative;
+    top: -20px;
+    text-align: end;
+}
+
+.header-container a:nth-child(1) i {
+    margin-right: 10px;
+}
+
+.header-container a:nth-child(2) {}
+
 .header-container p {
     color: #fff;
     font-size: 28px;
@@ -44,10 +67,22 @@ header {
 }
 
 header .buy-btn {
+    display: flex;
     background-color: var(--clr-btn);
     color: #fff;
     border: none;
     padding: 10px 20px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+header .buy-btn:hover {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    color: #fff;
+    font-weight: bold;
 }
 
 .articles {
