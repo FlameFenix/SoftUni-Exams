@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway');
+@import url('https://use.fontawesome.com/releases/v6.1.1/css/all.css');
+
+:root {
+    --clr-bg-grey: #efefef;
+    --clr-heading-grey: #b4b4b4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    font-family: "Raleway";
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+section article,
+header article,
+footer article {
+    background-color: var(--clr-bg-grey);
+    height: 600px;
+}
+
+.header-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-article a {
+    position: absolute;
+    padding-right: 20px;
+    padding-top: 20px;
+    top: 20px;
+    right: 30px;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+
+.header-article a i {
+    margin-left: 5px;
+}
+
+.header-article .article-information {
+    width: 30%;
+    padding-left: 80px;
+}
+
+.header-article .article-information h2 {
+    font-size: 46px;
+}
+
+.header-article .article-information p {
+    font-size: 24px;
+}
+
+.header-article .article-information h2 span {
+    font-weight: 100;
+    color: #b4b4b4;
+}
+
+.header-article .article-image {
+    position: relative;
+    object-fit: cover;
+    width: 700px;
+    margin-right: 150px;
+    margin-top: 40px;
+}
+
+.vertical-divider {
+    border-left: 1px solid black;
+    opacity: 0.9;
+    height: 80px;
+}
+
+.portfolio-artcile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio-artcile .article-image {
+    width: 60%;
+    margin: 0 auto;
+    margin-left: 100px;
+    margin-right: 70px;
+}
+
+.portfolio-artcile .article-information {
+    width: 30%;
+    margin: 0 auto;
+    margin-right: 100px;
+    gap: 20px;
+}
+
+.portfolio-artcile .horizontal-divider {
+    border-bottom: 1px solid black;
+    width: 60px;
+}
+
+.portfolio-artcile .heading {
+    display: flex;
+}
+
+.portfolio-artcile .heading h2 {
+    font-size: 46px;
+    color: var(--clr-heading-grey);
+    margin-bottom: 20px;
+}
+
+.portfolio-artcile .article-information p:nth-child(2) {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.portfolio-artcile .heading h2 span {
+    color: black;
+}
+
+.portfolio-artcile .heading .horizontal-divider {
+    margin-bottom: 50px;
+    margin-right: 25px;
+}
+
+.portfolio-artcile ul {
+    display: flex;
+}
