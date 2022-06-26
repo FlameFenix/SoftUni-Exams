@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette');
+@import url('https://use.fontawesome.com/releases/v6.1.1/css/all.css');
+
+html {
+    font-family: "Courgette";
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 50px;
+}
+.header h1 {
+    display: block;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.header p {
+    font-weight: bold;
+    font-size: 24px;
+    color: #cb2027;
+    text-align: center;
+    margin-left: 150px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.card:nth-child(1) p{
+    padding-bottom: 70px;
+}
+
+.card {
+    width: 32%;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+.card img {
+    object-fit: fill;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.card h2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cb2027;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.card p {
+    width: 55%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.card a i {
+    display: inline;
+    background-color: #cb2027;
+    margin-left: 10px;
+    padding: 1px 5px;
+    border-radius: 100%;
+    color: #fff;
+}
