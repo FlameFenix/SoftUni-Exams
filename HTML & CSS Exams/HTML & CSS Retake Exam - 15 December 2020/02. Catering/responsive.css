@@ -1,1 +1,35 @@
 /* TODO: Add the responsive styles here */
+@media screen and (max-width: 600px) {
+
+    .w3-right.w3-hide-small {
+        display: none;
+    }
+
+    .w3-col.m6.w3-padding-large.w3-hide-small {
+        display: none;
+    }
+
+    .w3-col.m6.w3-padding-large {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .w3-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .w3-col.l6.w3-padding-large {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
