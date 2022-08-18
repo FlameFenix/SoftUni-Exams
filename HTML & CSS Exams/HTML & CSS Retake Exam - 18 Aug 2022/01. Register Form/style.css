@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+body {
+    background-image: url('./images/background.png');
+    font-family: 'Mulish';
+}
+
+.register {
+    display: block;
+    flex-direction: column;
+    background-image: url('./images/form-background.png');
+    background-size: cover;
+    border-radius: 30px;
+    padding: 50px;
+    width: 40%;
+    height: 500px;
+    margin: 150px auto;
+    -webkit-box-shadow: 20px 15px 8px 4px #888888;
+    box-shadow: 20px 15px 8px 4px #888888;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    line-height: 3rem;
+    color: #6f727e;
+}
+
+.register-form h2 {
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+.register-form input {
+    background-color: #f8f8f8;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    padding: 8px 3px;
+}
+
+.register-form .input-names {
+    display: flex;
+}
+
+.register-form .email-and-passwords {
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+}
+
+.register-form #register-btn {
+    background-color: #ae3c33;
+    color: #fff;
+    width: 40%;
+    padding: 13px 4px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
