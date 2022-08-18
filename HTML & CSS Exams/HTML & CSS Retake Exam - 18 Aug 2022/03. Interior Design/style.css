@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril%20Fatface&display=swap');
+@import url('https://use.fontawesome.com/releases/v6.1.2/css/all.css');
+
+html {
+    font-family: 'Roboto';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Abril Fatface';
+}
+
+header {
+    display: flex;
+    width: 60%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #acabab;
+    width: 300px;
+    height: 250px;
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-left: 250px;
+    z-index: 1;
+    -webkit-box-shadow: 3px 3px 10px 3px #7c7a7a;
+    box-shadow: 3px 3px 10px 3px #7c7a7a;
+}
+
+.logo h1 {
+    width: 60%;
+    font-size: 42px;
+    margin-bottom: 0px;
+}
+
+.logo p {
+    border-top: 1px solid #fff;
+    padding-top: 20px;
+    width: 60%;
+}
+
+header img {
+    object-fit: cover;
+    height: 100rem;
+    width: 100rem;
+    z-index: -1;
+    margin-right: 250px;
+}
+
+.information {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    margin-top: 300px;
+    margin-left: 1200px;
+    background: rgb(157, 147, 139);
+    background: linear-gradient(90deg, rgba(157, 147, 139, 1) 0%, rgba(192, 187, 182, 1) 50%, rgba(202, 199, 198, 1) 100%);
+    -webkit-box-shadow: 3px 3px 10px 3px #7c7a7a;
+    box-shadow: 3px 3px 10px 3px #7c7a7a;
+}
+
+.information p {
+    margin-top: 0px;
+    margin-left: 40px;
+    padding-top: 0px;
+    font-size: 24px;
+    width: 88%;
+    text-align: right;
+    color: #fff;
+    text-shadow: 1px 1px black;
+}
+
+.information h1 {
+    height: 90px;
+    font-size: 100px;
+    margin-left: 440px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: #8d8581;
+}
+
+.services {
+    background-color: #f2f0f3;
+    padding: 50px;
+    width: 40%;
+    margin: 0 auto
+}
+
+article p {
+    line-height: 1.5rem;
+}
+
+article p i {
+    padding: 4px;
+    background-color: #333333;
+    border-radius: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+article p span {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+footer {
+    background-color: #f2f0f3;
+    width: 40%;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+footer h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+footer .contacts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .contacts p {
+    margin-right: 10px;
+}
+
+footer p span {
+    font-weight: bold;
+}
+
+footer .input-email {
+    background-color: #bab1ad;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 50px;
+}
+
+footer .submit-btn {
+    background-color: #67784d;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
