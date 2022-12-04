@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.19
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberShop", "BarberShop.csproj", "{08C91D92-A607-4E13-BE10-C5699BB14862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberShop.Tests", "..\BarberShop.Tests\BarberShop.Tests.csproj", "{0A69029E-0FC3-4274-8C11-92AB19DE4C4C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{08C91D92-A607-4E13-BE10-C5699BB14862} = {08C91D92-A607-4E13-BE10-C5699BB14862}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08C91D92-A607-4E13-BE10-C5699BB14862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C91D92-A607-4E13-BE10-C5699BB14862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C91D92-A607-4E13-BE10-C5699BB14862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C91D92-A607-4E13-BE10-C5699BB14862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A69029E-0FC3-4274-8C11-92AB19DE4C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A69029E-0FC3-4274-8C11-92AB19DE4C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A69029E-0FC3-4274-8C11-92AB19DE4C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A69029E-0FC3-4274-8C11-92AB19DE4C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69E6BD58-DEF4-454D-9D68-BFADE1990960}
+	EndGlobalSection
+EndGlobal
