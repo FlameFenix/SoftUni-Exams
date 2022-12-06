@@ -21,5 +21,11 @@ public class Card
 
     public int Health { get; set; }
 
-    public int Level { get; set; } 
+    public int Level { get; set; }
+
+    public override bool Equals(object obj)
+    {
+        var card = obj as Card;
+        return Name == card.Name;
+    }
 }
