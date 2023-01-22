@@ -22,5 +22,17 @@ namespace Exam.MoovIt
             this.IsFavorite = isFavorite;
             this.LocationPoints = locationPoints;
         }
+
+        public override int GetHashCode()
+        {
+            return Distance.GetHashCode() * LocationPoints[0].GetHashCode() * LocationPoints[LocationPoints.Count - 1].GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Route;
+
+            return other.Distance == this.Distance && other.Popularity == this.Popularity;
+        }
     }
 }
